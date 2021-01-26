@@ -5,29 +5,29 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pablo.bakeryManager.request.ProductRequest;
+import com.pablo.bakeryManager.params.ProductParams;
 import com.pablo.bakeryManager.response.ServiceResponse;
-import com.pablo.bakeryManager.services.product.ServiceFindAllProducts;
-import com.pablo.bakeryManager.services.product.ServiceFindByIdProduct;
+import com.pablo.bakeryManager.services.product.ProductFinder;
+import com.pablo.bakeryManager.services.product.ProductFinderById;
 
 @RestController
 public class ProductsGetController {
 
 	@Autowired
-	private ServiceFindAllProducts serviceFindAllProducts;
+	private ProductFinder productFinder;
 	
 	@Autowired
-	private ServiceFindByIdProduct serviceFindByIdProduct;
+	private ProductFinderById productFinderById;
 	
 	@GetMapping("/products")
-	public ServiceResponse getProducts(ProductRequest request) {
+	public ServiceResponse getProducts(ProductParams params) {
 
-		return serviceFindAllProducts.getData(request);
+		return productFinder.getData(params);
 	}
 	
 	@GetMapping("/products/{idProduct}")
 	public ServiceResponse getProduct(@PathVariable("idProduct") Long idProduct) {
 		
-		return serviceFindByIdProduct.getData(idProduct);
+		return productFinderById.getData(idProduct);
 	}
 }

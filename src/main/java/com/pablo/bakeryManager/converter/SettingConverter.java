@@ -5,7 +5,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import com.pablo.bakeryManager.dto.SettingDTO;
+import com.pablo.bakeryManager.dto.response.SettingDTO;
+import com.pablo.bakeryManager.interf.Converter;
 import com.pablo.bakeryManager.model.Setting;
 
 @Component

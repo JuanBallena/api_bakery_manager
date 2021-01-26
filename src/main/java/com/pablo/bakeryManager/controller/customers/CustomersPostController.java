@@ -5,19 +5,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pablo.bakeryManager.dto.customer.RequestCreateCustomerDTO;
+import com.pablo.bakeryManager.dto.request.customer.RequestCreateCustomerDTO;
 import com.pablo.bakeryManager.response.ServiceResponse;
-import com.pablo.bakeryManager.services.customer.ServiceCreateCustomer;
+import com.pablo.bakeryManager.services.customer.CustomerCreator;
 
 @RestController
 public class CustomersPostController {
 
 	@Autowired
-	private ServiceCreateCustomer serviceCreateCustomer;
+	private CustomerCreator customerCreator;
 
 	@PostMapping("/customers")
 	public ServiceResponse saveCustomer(@RequestBody RequestCreateCustomerDTO requestDTO) {
 		
-		return serviceCreateCustomer.postData(requestDTO);
+		return customerCreator.postData(requestDTO);
 	}
 }

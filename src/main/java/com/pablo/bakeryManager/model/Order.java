@@ -56,7 +56,7 @@ public class Order {
 	@JoinColumn(name = COLUMN_ID_005_TURN)
 	private Parameter turn;
 	
-	@Column(name = COLUMN_TIMESTAMP, insertable = false)
+	@Column(name = COLUMN_TIMESTAMP, insertable = false, updatable = false)
 	private Timestamp timestamp;
 	
 	@ManyToOne

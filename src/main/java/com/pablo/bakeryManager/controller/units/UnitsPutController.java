@@ -6,19 +6,19 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pablo.bakeryManager.dto.unit.RequestUpdateUnitDTO;
+import com.pablo.bakeryManager.dto.request.unit.RequestUpdateUnitDTO;
 import com.pablo.bakeryManager.response.ServiceResponse;
-import com.pablo.bakeryManager.services.unit.ServiceUpdateUnit;
+import com.pablo.bakeryManager.services.unit.UnitUpdater;
 
 @RestController
 public class UnitsPutController {
 
 	@Autowired
-	private ServiceUpdateUnit serviceUpdateUnit;
+	private UnitUpdater unitUpdater;
 	
 	@PutMapping("/units/{idUnit}")
 	public ServiceResponse updateUnit(@PathVariable("idUnit") Long idUnit, @RequestBody RequestUpdateUnitDTO requestDTO) {
 		
-		return serviceUpdateUnit.putData(idUnit, requestDTO);
+		return unitUpdater.putData(idUnit, requestDTO);
 	}
 }

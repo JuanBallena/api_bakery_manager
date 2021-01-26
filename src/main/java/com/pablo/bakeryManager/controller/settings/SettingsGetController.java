@@ -5,17 +5,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.pablo.bakeryManager.response.ServiceResponse;
-import com.pablo.bakeryManager.services.setting.ServiceFindAllSettings;
+import com.pablo.bakeryManager.services.setting.SettingFinder;
 
 @RestController
 public class SettingsGetController {
 
 	@Autowired
-	private ServiceFindAllSettings serviceFindAllSettings;
+	private SettingFinder settingFinder;
 	
 	@GetMapping("/settings")
 	public ServiceResponse getSettings() {
 		
-		return serviceFindAllSettings.getData();
+		return settingFinder.getData();
 	}
 }

@@ -5,19 +5,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pablo.bakeryManager.dto.category.RequestCreateCategoryDTO;
+import com.pablo.bakeryManager.dto.request.category.RequestCreateCategoryDTO;
 import com.pablo.bakeryManager.response.ServiceResponse;
-import com.pablo.bakeryManager.services.category.ServiceCreateCategory;
+import com.pablo.bakeryManager.services.category.CategoryCreator;
 
 @RestController
 public class CategoriesPostController {
 
 	@Autowired
-	private ServiceCreateCategory serviceCreateCategory;
+	private CategoryCreator categoryCreator;
 
 	@PostMapping("/categories")
 	public ServiceResponse saveCategory(@RequestBody RequestCreateCategoryDTO requestDTO) {
 		
-		return serviceCreateCategory.postData(requestDTO);
+		return categoryCreator.postData(requestDTO);
 	}
 }

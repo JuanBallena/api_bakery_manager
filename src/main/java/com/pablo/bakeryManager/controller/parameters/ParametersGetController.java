@@ -4,19 +4,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pablo.bakeryManager.request.ParameterRequest;
+import com.pablo.bakeryManager.params.ParameterParams;
 import com.pablo.bakeryManager.response.ServiceResponse;
-import com.pablo.bakeryManager.services.parameter.ServiceFindAllParameters;
+import com.pablo.bakeryManager.services.parameter.ParameterFinder;
 
 @RestController
 public class ParametersGetController {
 
 	@Autowired
-	private ServiceFindAllParameters serviceFindAllParameters;
+	private ParameterFinder parameterFinder;
 	
 	@GetMapping("/parameters")
-	public ServiceResponse getParameters(ParameterRequest request) {
+	public ServiceResponse getParameters(ParameterParams params) {
 		
-		return serviceFindAllParameters.getData(request);
+		return parameterFinder.getData(params);
 	}
 }

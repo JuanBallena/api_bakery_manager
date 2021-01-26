@@ -5,29 +5,29 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pablo.bakeryManager.request.OrderRequest;
+import com.pablo.bakeryManager.params.OrderParams;
 import com.pablo.bakeryManager.response.ServiceResponse;
-import com.pablo.bakeryManager.services.order.ServiceFindAllOrders;
-import com.pablo.bakeryManager.services.order.ServiceFindByIdOrder;
+import com.pablo.bakeryManager.services.order.OrderFinder;
+import com.pablo.bakeryManager.services.order.OrderFinderById;
 
 @RestController
 public class OrdersGetController {
 
 	@Autowired
-	private ServiceFindAllOrders serviceFindAllOrders;
+	private OrderFinder orderFinder;
 	
 	@Autowired
-	private ServiceFindByIdOrder serviceFindByIdOrder;
+	private OrderFinderById orderFinderById;
 	
 	@GetMapping("/orders")
-	public ServiceResponse getOrders(OrderRequest request) {
+	public ServiceResponse getOrders(OrderParams params) {
 
-		return serviceFindAllOrders.getData(request);
+		return orderFinder.getData(params);
 	}
 	
 	@GetMapping("/orders/{idOrder}")
 	public ServiceResponse getOrder(@PathVariable("idOrder") Long idOrder) {
 		
-		return serviceFindByIdOrder.getData(idOrder);
+		return orderFinderById.getData(idOrder);
 	}
 }

@@ -92,8 +92,8 @@ public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler
 		details.put("path", path);
 		details.put("message", errors);
 		
-		serviceResponse.setResponseCode(status.value());
-		serviceResponse.setResponseMessage(getMessageForStatus(status));
+		serviceResponse.setStatusCode(status.value());
+		serviceResponse.setStatusMessage(getMessageForStatus(status));
 		serviceResponse.setException(details);
 
 		return new ResponseEntity<>(serviceResponse, status);

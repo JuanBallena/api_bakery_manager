@@ -5,29 +5,29 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pablo.bakeryManager.request.UnitRequest;
+import com.pablo.bakeryManager.params.UnitParams;
 import com.pablo.bakeryManager.response.ServiceResponse;
-import com.pablo.bakeryManager.services.unit.ServiceFindAllUnits;
-import com.pablo.bakeryManager.services.unit.ServiceFindByIdUnit;
+import com.pablo.bakeryManager.services.unit.UnitFinder;
+import com.pablo.bakeryManager.services.unit.UnitFinderById;
 
 @RestController
 public class UnitsGetController {
 
 	@Autowired
-	private ServiceFindAllUnits serviceFindAllUnits;
+	private UnitFinder unitFinder;
 	
 	@Autowired
-	private ServiceFindByIdUnit serviceFindByIdUnit;
+	private UnitFinderById unitFinderById;
 	
 	@GetMapping("/units")
-	public ServiceResponse getUnits(UnitRequest request) {
+	public ServiceResponse getUnits(UnitParams params) {
 		
-		return serviceFindAllUnits.getData(request);
+		return unitFinder.getData(params);
 	}
 	
 	@GetMapping("/units/{idUnit}")
 	public ServiceResponse getUnit(@PathVariable("idUnit") Long idUnit) {
 		
-		return serviceFindByIdUnit.getData(idUnit);
+		return unitFinderById.getData(idUnit);
 	}
 }

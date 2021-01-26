@@ -19,5 +19,4 @@ public class FixedTextSizeImpl implements ConstraintValidator<FixedTextSize, Str
     	int textLength = text.length();
     	return textLength == this.size;
     }
- 
 }

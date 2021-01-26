@@ -5,19 +5,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pablo.bakeryManager.dto.unit.RequestCreateUnitDTO;
+import com.pablo.bakeryManager.dto.request.unit.RequestCreateUnitDTO;
 import com.pablo.bakeryManager.response.ServiceResponse;
-import com.pablo.bakeryManager.services.unit.ServiceCreateUnit;
+import com.pablo.bakeryManager.services.unit.UnitCreator;
 
 @RestController
 public class UnitsPostController {
 
 	@Autowired
-	private ServiceCreateUnit serviceCreateUnit;
+	private UnitCreator unitCreator;
 	
 	@PostMapping("/units")
 	public ServiceResponse saveUnit(@RequestBody RequestCreateUnitDTO requestDTO) {
 		
-		return serviceCreateUnit.postData(requestDTO);
+		return unitCreator.postData(requestDTO);
 	}
 }

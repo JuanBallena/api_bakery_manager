@@ -19,6 +19,7 @@
 		<java.version>1.8</java.version>
 	</properties>
 
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -73,6 +74,11 @@
 		    <groupId>com.google.guava</groupId>
 		    <artifactId>guava</artifactId>
 		    <version>28.2-jre</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.reflections</groupId>
+		    <artifactId>reflections</artifactId>
+		    <version>0.9.12</version>
 		</dependency>
 	</dependencies>
 

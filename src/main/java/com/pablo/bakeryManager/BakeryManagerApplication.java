@@ -14,7 +14,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 //import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.validation.beanvalidation.MethodValidationPostProcessor;
 
-import com.pablo.bakeryManager.repository.CustomRepositoryImpl;
+import com.pablo.bakeryManager.infrastructure.repository.CustomRepositoryImpl;
 
 @SpringBootApplication
 @EnableJpaRepositories(repositoryBaseClass = CustomRepositoryImpl.class)

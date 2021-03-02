@@ -5,7 +5,7 @@ import org.springframework.data.domain.Sort.Order;
 
 public class OrderCreator {
 	
-	 public static final Order build(String property, String direction) {
+	 public static final Order create(String property, String direction) {
 
 		if (direction.equals("asc")) {
 			

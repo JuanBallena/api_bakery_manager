@@ -66,6 +66,6 @@ public class ProductsFinderRequest {
 	
 	public Order order() {
 		
-		return OrderCreator.build(this.orderType, this.orderBy);
+		return OrderCreator.create(this.orderType, this.orderBy);
 	}
 }

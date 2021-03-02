@@ -54,6 +54,6 @@ public class CustomersFinderRequest {
 	
 	public Order order() {
 		
-		return OrderCreator.build(this.orderBy, this.orderType);
+		return OrderCreator.create(this.orderBy, this.orderType);
 	}
 }
